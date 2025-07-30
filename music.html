@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Starz Music - Pure js</title>
+  <link rel="stylesheet" href="style/main.css"/>
+  <link rel="stylesheet" href="style/OSComm.css">
+
+
+ <link rel="stylesheet" href="interacts/all.css" />
+  <link rel="stylesheet" href="interacts/all.min.css" />
+  <link rel="stylesheet" href="interacts/brands.css" />
+  <link rel="stylesheet" href="interacts/brands.min.css" />
+  
+  
+
+</head>
+
+<body>
+  
+  
+  
+  <div class="MAIN">
+   
+      <div class="topHeader">
+        
+        <div class="innerHeader">
+        <div class="side left" style="--itsWidth: 13%;">
+          <i class="fa fa-window-maximize" data-setup-open></i>
+        </div><!--  L-->
+        <div class="side right" style="--itsWidth: 25%">
+          
+          
+
+            <i class="fa fa-search"></i>
+            
+         
+          
+          <i class="fa fa-headphones"></i>
+          <i class="fa fa-plus"></i>
+        </div><!--  R-->
+       </div><!-- InH -->
+       
+        </div><!-- TH -->
+         
+    <div class="page" id="AllMusic">
+      
+       <div class="pageHeader">
+         <div class="side left" style="--itsWidth: 30%">
+           <i class="fa fa-shuffle"></i>
+           <i class="fa fa-play"></i>
+         <h5 class="trackCount">-- Track/s</h5>
+         
+         </div><!-- L -->
+         <div class="side right" style="--itsWidth: 34%;">
+           <div class="sort-button">
+             
+             <h6>Alphabetical</h6>
+             <i class="fa fa-chevron-down"></i>
+           </div><!-- sorting -->
+           
+           <i class="fa fa-filter"></i>
+           
+         </div><!-- R -->
+       </div><!--pgH -->
+       
+       
+
+
+     
+      
+      <div class="all-music-list">
+     <!-- All music will be added here -->
+      </div><!--  -->
+      
+      
+
+
+      
+    </div><!-- all music bdry -->
+    
+    
+    
+    <div class="music-player">
+      <audio src="" id="The-Audio-Receiver"></audio>
+      <div class="fxBg"></div>
+      <div class="top">
+        <i class="fa fa-chevron-down"></i>
+        <div class="holder">
+          <h5>0/0</h5>
+          <h6>Album-Name</h6>
+        </div><!--  -->
+        <i class="fa fa-ellipsis-h"></i>
+      </div>
+<div class="play-left">
+  
+  <div class="art-bg">
+    <div class="art"></div>
+  </div>
+  <div class="data">
+  <div class="play-track-info">
+    <h5 class="play-song">A-Name</h5>
+    <h6 class="play-artist">--l--</h6>
+  </div>
+  <i class="fa fa-face-grin viz-button"></i>
+  </div>
+</div>
+
+<!-- player's left -->
+
+
+<div class="wave-area"></div><!--  -->
+
+
+<div class="play-right">
+  <h6 class="duration onplay">0:00</h6>
+  <div class="controls">
+    <i class="fa fa-backward cursor"></i>
+    <i class="fa fa-play player"></i>
+    <i class="fa fa-forward cursor"></i>
+  </div>
+  <h6 class="duration full">0:00</h6>
+</div><!--  -->
+
+
+
+  <div class="progress-bar">
+    <div class="value"></div>
+  </div><!-- music-progress -->
+  
+  
+  
+  <div class="footer">
+    <div class="side" style="--itsWidth: 12%"></div>
+    <div class="side" style="--itsWidth: 35%">
+      <i class="fa fa-repeat"></i>
+      <i class="fa fa-database"></i>
+      <i class="fa fa-hand-spock" id="Eqbtn"></i>
+      <i class="fa fa-face-grin"></i>
+    </div><!--  -->
+  </div><!--  -->
+  
+</div><!-- Music-player -->
+
+
+
+
+    
+    <div class="nav-Bar">
+      <div class="nav">
+        <i class="fa fa-home"></i>
+        <span>Home</span>
+      </div>
+      
+      <div class="nav active">
+<i class="fa fa-music"></i>
+        <span>All Tracks</span>
+      </div>
+            <div class="nav">
+<i class="fa fa-playlist"></i>
+        <span>Playlists</span>
+      </div>
+      
+          <div class="nav">
+<i class="fa fa-heart"></i>
+        <span>Favourites</span>
+      </div>
+      
+               <div class="nav">
+<i class="fa fa-history"></i>
+        <span>History</span>
+      </div>
+      
+      
+      <div class="nav">
+        <i class="fa fa-play"></i>
+        <span>Explore</span>
+      </div>
+      
+            <div class="nav" data-setup-open>
+        <i class="fa fa-cog"></i>
+        <span>Settings</span>
+      </div>
+      
+      
+    </div><!-- nav-bar -->
+    
+    
+    
+<div class="fxArea">
+  
+  <div class="top">
+    <div class="left">
+      <i class="fa fa-chevron-left back"></i>
+     
+    </div>
+    
+    <div class="right">
+     <div class="o-type">
+       <h6>Built-In Speakers</h6>
+       <i class="fa fa-chevron-down"></i>
+     </div><!--  -->
+     <div class="switch w-switch">
+       <input type="checkbox" name="" id="EqCheck">
+       <div class="switcher"></div>
+     </div>
+    </div>
+    
+  </div><!--  -->
+  
+  <div class="innerPage show" id="EQ">
+    <h3 class="title">Equalizer</h3>
+    <div class="up">
+      <div class="presetdrop">
+        <div class="preset-dropBtn">
+          <i class="fa fa-chevron-down"></i>
+          <h4>Normal</h4>
+        </div><!-- pdp -->
+        <div class="presets">
+          <div class="pr active">
+            <i class="fa">N</i>
+            <h6>Normal</h6>
+          </div><!--  -->
+          
+           <div class="pr">
+            <i class="fa fa-volume-down"></i>
+            <h6>Bass</h6>
+          </div><!--  -->
+          
+           <div class="pr">
+            <i class="fa fa-microphone"></i>
+            <h6>Pure Voice</h6>
+          </div><!--  -->
+          
+            <div class="pr">
+            <i class="fa fa-face-angry"></i>
+            <h6>Heavy Metal</h6>
+          </div><!--  -->
+          
+            <div class="pr">
+    <i class="fa fa-music"></i>
+    <h6>Pop</h6>
+  </div><!--  -->
+  
+    <div class="pr">
+    <i class="fa">č</i>
+    <h6>Classic</h6>
+  </div><!--  -->
+  
+    <div class="pr">
+    <i class="fa fa-bolt"></i>
+    <h6>Rock</h6>
+  </div><!--  -->
+        </div><!-- presets --->
+      </div><!-- presetdrop -->
+      <div class="select-handler">
+        <i class="fa fa-waves"></i>
+      <select id="eqBand-Select">
+        <option value="3">3 Bands</option>
+        <option value="5">5 Bands</option>
+        <option value="7">7 Bands</option>
+        <option value="10">10 Bands</option>
+      </select>
+      
+      <i class="fa fa-chevron-down"></i></div>
+      
+    </div><!-- up -->
+    
+    
+    <div class="eq-filters">
+      
+     <div class="filter">
+       
+       <div class="holder">
+         <i class="fa fa-chevron-up"></i>
+         <div class="handler">
+           <div class="dragger">
+             <div class="inner"></div>
+           </div>
+           <div class="cover">
+             <div class="inner-value"></div>
+           </div>
+         </div>
+         <i class="fa fa-chevron-down"></i>
+         <label>26Hz</label>
+         <label class="value-disp">0.0dB</label>
+       </div><!-- filter -->
+       
+     </div><!-- f -->
+     
+     
+     
+    </div><!--  -->
+    
+  </div><!--  -->
+  
+  <div class="innerPage" id="Boost">
+    <h3 class="title">tweakBoost</h3>
+  </div><!--  -->
+  
+  <div class="innerPage" id="reverbing">
+    
+     <div class="visualizer" id="visualizer">
+            <div class="wave" id="wave"></div>
+        </div>
+        
+    <h3 class="title">3D</h3><!--  -->
+    <div class="up">
+      <div class="presetdrop">
+        <div class="preset-dropBtn">
+          <i class="fa fa-chevron-down"></i>
+          <h4>Default</h4>
+        </div><!-- pdp -->
+        <div class="presets">
+          <div class="pr active">
+            <i class="fa">O</i>
+            <h6>Default</h6>
+          </div><!--  -->
+          
+           <div class="pr">
+            <i class="fa fa-volume-down"></i>
+            <h6>Small Room</h6>
+          </div><!--  -->
+          
+           <div class="pr">
+            <i class="fa fa-microphone"></i>
+            <h6>Large Hall</h6>
+          </div><!--  -->
+          
+            <div class="pr">
+            <i class="fa fa-face-angry"></i>
+            <h6>Parking lot</h6>
+          </div><!--  -->
+          
+            <div class="pr">
+    <i class="fa fa-music"></i>
+    <h6>Cathedral</h6>
+  </div><!--  -->
+  
+    <div class="pr">
+    <i class="fa">č</i>
+    <h6>Highway</h6>
+  </div><!--  -->
+  
+    <div class="pr">
+    <i class="fa fa-bolt"></i>
+    <h6>The Sky</h6>
+  </div><!--  -->
+        </div><!-- presets --->
+      </div><!-- presetdrop -->
+     <div class="switch">
+       <input type="checkbox" name="" id="reverbToggle">
+       <div class="switcher"></div>
+     </div>
+    </div><!-- up-ward -->
+    
+    
+    <div class="reverb-handler">
+      
+      <div class="inside">
+        <div class="top">
+          <h5>Room Level</h5>
+          <label>-60.0 <span>dB</span></label>
+        </div><!--  -->
+        <div class="holder" data-param="roomLevel">
+          <i class="fa fa-chevron-left"></i>
+          <div class="handler horizontal">
+            <div class="dragger"></div>
+            <div class="cover">
+              <div class="inner-value"></div>
+            </div>
+          </div><!--  -->
+          <i class="fa fa-chevron-right"></i>
+        </div><!--  -->
+      </div><!-- rverb -->
+      
+         <div class="inside">
+        <div class="top">
+          <h5>Room HF Level</h5>
+          <label>0.0 <span>dB</span></label>
+        </div><!--  -->
+        <div class="holder" data-param="roomHFLevel">
+          <i class="fa fa-chevron-left"></i>
+          <div class="handler horizontal">
+            <div class="dragger"></div>
+            <div class="cover">
+              <div class="inner-value"></div>
+            </div>
+          </div><!--  -->
+          <i class="fa fa-chevron-right"></i>
+        </div><!--  -->
+      </div><!-- rverb -->
+      
+      
+      
+      
+         <div class="inside">
+     <div class="top">
+       <h5>Decay Time</h5>
+       <label>1490 <span>ms</span></label>
+     </div><!--  -->
+     <div class="holder" data-param="decayTime">
+       <i class="fa fa-chevron-left"></i>
+       <div class="handler horizontal">
+         <div class="dragger"></div>
+         <div class="cover">
+           <div class="inner-value"></div>
+         </div>
+       </div><!--  -->
+       <i class="fa fa-chevron-right"></i>
+     </div><!--  -->
+   </div><!-- rverb -->
+      
+         <div class="inside">
+     <div class="top">
+       <h5>Decay HF ratio</h5>
+       <label>420 <span>ms</span></label>
+     </div><!--  -->
+     <div class="holder" data-param="decayHFRatio">
+       <i class="fa fa-chevron-left"></i>
+       <div class="handler horizontal">
+         <div class="dragger"></div>
+         <div class="cover">
+           <div class="inner-value"></div>
+         </div>
+       </div><!--  -->
+       <i class="fa fa-chevron-right"></i>
+     </div><!--  -->
+   </div><!-- rverb -->
+      
+      
+         <div class="inside">
+     <div class="top">
+       <h5>Reflections Level</h5>
+       <label>0.0 <span>dB</span></label>
+     </div><!--  -->
+     <div class="holder" data-param="reflections">
+       <i class="fa fa-chevron-left"></i>
+       <div class="handler horizontal">
+         <div class="dragger"></div>
+         <div class="cover">
+           <div class="inner-value"></div>
+         </div>
+       </div><!--  -->
+       <i class="fa fa-chevron-right"></i>
+     </div><!--  -->
+   </div><!-- rverb -->
+   
+   
+      <div class="inside">
+     <div class="top">
+       <h5>Reflections Delay</h5>
+       <label>0 <span>ms</span></label>
+     </div><!--  -->
+     <div class="holder" data-param="reflectionDelay">
+       <i class="fa fa-chevron-left"></i>
+       <div class="handler horizontal">
+         <div class="dragger"></div>
+         <div class="cover">
+           <div class="inner-value"></div>
+         </div>
+       </div><!--  -->
+       <i class="fa fa-chevron-right"></i>
+     </div><!--  -->
+   </div><!-- rverb -->
+      
+      
+      
+    </div><!-- rv -->
+    
+    
+  </div><!--  -->
+  <div class="navigate">
+    <i class="fa fa-hand-spock active" data-fx="EQ"></i>
+    <i class="fa fa-face-grin" data-fx="Boost"></i>
+    <i class="fa fa-headphones" data-fx="reverbing"></i>
+  </div><!--  -->
+  
+  
+</div><!-- FX-AREA -->
+
+<div class="setups" id="allSettings">
+  
+  <div class="top">
+    
+    <div class="side" style="--itsWidth: 8%;">
+      <i class="fa fa-chevron-left return"></i>
+    </div><!--  -->
+    <div class="side" style="--itsWidth: 34%;">
+      
+      <div class="search-exercute">
+        <i class="fa fa-search"></i>
+        <h6>Search</h6>
+      </div><!--  -->
+      
+      <i class="fa fa-ellipsis-v"></i>
+    </div>
+  </div><!--  -->
+  <div class="top title">
+    <h3>Settings</h3>
+  </div><!--  -->
+  
+  <div class="tile-area">
+   
+     
+  <div class="tile">
+      
+      
+      <div class="tileNameSpace">
+        <i class="fa fa-home iL"></i>
+        <div class="left">
+          <h4>Defaults</h4>
+          <h6>Normal Torchups In the UI</h6>
+        </div>
+        <div class="right">
+
+        </div>
+      </div><!--  -->
+      
+      <div class="opt">
+        <div class="in-opt">
+        <div class="text">
+          <h4>Use Collapse Tiled Setup</h4>
+        </div>
+        <div class="opt-right except">
+           <div class="switch">
+            <input type="checkbox" name="" id="tile-switch"/>
+            <div class="switcher"></div>
+          </div><!--  -->
+      </div>
+
+</div><!--  -->
+      </div><!-- opt -->
+      
+
+<div class="opt">
+  <div class="in-opt">
+    <div class="text"><h4>App Performance</h4></div>
+    
+<div class="right">
+  <select name="" id="">
+    <option>Optimized</option>
+    <option>Good Looking</option>
+    <option>Robust</option>
+  </select>
+</div>
+  </div><!--  -->
+</div>
+
+
+
+
+    </div><!-- tile -->
+  
+    
+  <div class="tile">
+      
+      
+      <div class="tileNameSpace">
+        <i class="fa fa-face-grin iL"></i>
+        <div class="left">
+          <h4>Customizations</h4>
+          <h6>Set some UI activities according to your perferences</h6>
+        </div>
+        <div class="right">
+
+        </div>
+      </div><!--  -->
+      
+      <div class="opt">
+        <div class="in-opt">
+        <div class="text">
+          <h4>Enable TrackImage Animation</h4>
+        </div>
+        <div class="opt-right">
+           <div class="switch">
+            <input type="checkbox" name="" id="Animation-switch" />
+            <div class="switcher"></div>
+          </div><!--  -->
+          <i class="fa fa-chevron-down iL"></i></div>
+      </div>
+      <div class="sub-opt">
+        <div class="text">
+          <h4>Inverse Animation</h4>
+        </div><!--  -->
+        
+        
+
+            <input type="radio" name="" id="" class="radio-switch"/>
+
+         
+      </div><!--  -->
+       <div class="sub-opt">
+        <div class="text">
+          <h4>Scretching Bulb FX</h4>
+        </div><!--  -->
+        
+        
+
+            <input type="radio" name="" id="" class="radio-switch"/>
+
+         
+      </div><!--  --> 
+</div><!--  -->
+      
+      
+    </div><!-- tile -->
+
+
+
+  <div class="tile">
+      
+      
+      <div class="tileNameSpace">
+        <i class="fa fa-face-grin iL"></i>
+        <div class="left">
+          <h4>Accessibility</h4>
+          <h6>Natural</h6>
+        </div>
+        <div class="right">
+
+        </div>
+      </div><!--  -->
+      
+      <div class="opt">
+        <div class="in-opt">
+        <div class="text">
+          <h4>Smart Controls</h4>
+        </div>
+        <div class="opt-right">
+           <div class="switch">
+            <input type="checkbox" name="" id="Animation-switch" />
+            <div class="switcher"></div>
+          </div><!--  -->
+          <i class="fa fa-chevron-down iL"></i></div>
+      </div>
+      <div class="sub-opt">
+        <div class="text">
+          <h4>Shake Guesture</h4>
+          <h6>IF ENABLED: shake twice for Next, Shake trice for prev, shake once for play/pause(might not work in some devicss/browsers) </h6>
+        </div><!--  -->
+        
+        
+
+            <input type="radio" name="" id="" class="radio-switch"/>
+
+         
+      </div><!--  -->
+       <div class="sub-opt">
+        <div class="text">
+          <h4>Out-Window Control</h4>
+        </div><!--  -->
+        
+        
+
+            <input type="radio" name="" id="" class="radio-switch" checked/>
+
+         
+      </div><!--  --> 
+</div><!--  opt-->
+      
+      
+       <div class="opt">
+        <div class="in-opt">
+        <div class="text">
+          <h4>Normalize Audio</h4>
+          <h6>Player tries to play all song at the exact audio voulume by controling and manipulating each audio's dB msnifest.</h6>
+        </div>
+        <div class="opt-right except">
+           <div class="switch">
+            <input type="checkbox" name="" id="dBNorm" />
+            <div class="switcher"></div>
+          </div><!--  -->
+          </div>
+      </div> </div><!-- opt -->
+
+    </div><!-- tile -->
+
+
+
+
+
+
+  </div><!--  tile-cont. -->
+  
+  
+</div><!-- music-player settings -->
+
+
+
+
+  </div><!-- All of STARZ MUSIC-->
+  
+  <script src="music.js" type="text/javascript" charset="utf-8"></script>
+  
+  
+</body>
+
+    </html>
